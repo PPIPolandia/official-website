@@ -393,5 +393,19 @@ export const api = {
     } catch (err) {
       console.warn('API updateAllowedAdmins error', err);
     }
+  },
+
+  // 15. Reset Database to Default Seed
+  async resetDefaultData() {
+    try {
+      const res = await fetch(`${API_BASE}/reset-default`, {
+        method: 'POST',
+        headers: getAuthHeaders(false)
+      });
+      return await res.json();
+    } catch (err) {
+      console.warn('API resetDefaultData error', err);
+      return null;
+    }
   }
 };

@@ -422,8 +422,8 @@ export const AppDataProvider = ({ children }) => {
   };
 
   // Reset to default data
-  const resetToDefaultData = () => {
-    setActiveThemeKey('biru');
+  const resetToDefaultData = async () => {
+    setActiveThemeKey('merah');
     setVisiMisi(initialVisiMisi);
     setSambutanKetua(initialSambutanKetua);
     setStatsData(initialStatsData);
@@ -437,6 +437,7 @@ export const AppDataProvider = ({ children }) => {
     setPesanMasuk(initialPesanMasuk);
     setAllowedAdmins(initialAllowedAdmins);
     localStorage.clear();
+    await api.resetDefaultData();
     showToast('Seluruh data berhasil di-reset ke data bawaan!');
   };
 
