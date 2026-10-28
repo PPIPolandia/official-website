@@ -79,30 +79,31 @@ export const AppDataProvider = ({ children }) => {
   const [kategoriBeritaList, setKategoriBeritaList] = useState(() => safeJSONParse('ppip_kategoriBeritaList', initialKategoriBeritaList));
   const [berita, setBerita] = useState(() => safeJSONParse('ppip_berita', initialBerita));
   const [kontak, setKontak] = useState(() => safeJSONParse('ppip_kontak', initialKontak));
-  const [pesanMasuk, setPesanMasuk] = useState(() => safeJSONParse('ppip_pesanMasuk', initialPesanMasuk));
-  const [allowedAdmins, setAllowedAdmins] = useState(() => safeJSONParse('ppip_allowedAdmins', initialAllowedAdmins));
+  const [pesanMasuk, setPesanMasuk] = useState(initialPesanMasuk);
+  const [allowedAdmins, setAllowedAdmins] = useState(initialAllowedAdmins);
 
-  // Load live data from Backend REST API on mount
+  // Load live data from Backend REST API
+  const refreshServerData = async () => {
+    const db = await api.fetchFullData();
+    if (db) {
+      if (db.activeThemeKey) setActiveThemeKey(db.activeThemeKey);
+      if (db.visiMisi) setVisiMisi(db.visiMisi);
+      if (db.sambutanKetua) setSambutanKetua(db.sambutanKetua);
+      if (db.statsData) setStatsData(db.statsData);
+      if (db.divisi) setDivisi(db.divisi);
+      if (db.programKerja) setProgramKerja(db.programKerja);
+      if (db.pengurus) setPengurus(db.pengurus);
+      if (db.kabinetList) setKabinetList(db.kabinetList);
+      if (db.kategoriBeritaList) setKategoriBeritaList(db.kategoriBeritaList);
+      if (db.berita) setBerita(db.berita);
+      if (db.kontak) setKontak(db.kontak);
+      if (Array.isArray(db.pesanMasuk)) setPesanMasuk(db.pesanMasuk);
+      if (Array.isArray(db.allowedAdmins)) setAllowedAdmins(db.allowedAdmins);
+    }
+  };
+
   useEffect(() => {
-    const loadServerData = async () => {
-      const db = await api.fetchFullData();
-      if (db) {
-        if (db.activeThemeKey) setActiveThemeKey(db.activeThemeKey);
-        if (db.visiMisi) setVisiMisi(db.visiMisi);
-        if (db.sambutanKetua) setSambutanKetua(db.sambutanKetua);
-        if (db.statsData) setStatsData(db.statsData);
-        if (db.divisi) setDivisi(db.divisi);
-        if (db.programKerja) setProgramKerja(db.programKerja);
-        if (db.pengurus) setPengurus(db.pengurus);
-        if (db.kabinetList) setKabinetList(db.kabinetList);
-        if (db.kategoriBeritaList) setKategoriBeritaList(db.kategoriBeritaList);
-        if (db.berita) setBerita(db.berita);
-        if (db.kontak) setKontak(db.kontak);
-        if (db.pesanMasuk) setPesanMasuk(db.pesanMasuk);
-        if (db.allowedAdmins) setAllowedAdmins(db.allowedAdmins);
-      }
-    };
-    loadServerData();
+    refreshServerData();
   }, []);
 
   // Active Admin Toast Message State
@@ -115,7 +116,7 @@ export const AppDataProvider = ({ children }) => {
     }, 3500);
   };
 
-  // Sync to localStorage safely as client fallback
+  // Sync public data to localStorage safely as client fallback
   useEffect(() => { safeJSONSave('ppip_visiMisi', visiMisi); }, [visiMisi]);
   useEffect(() => { safeJSONSave('ppip_sambutanKetua', sambutanKetua); }, [sambutanKetua]);
   useEffect(() => { safeJSONSave('ppip_statsData', statsData); }, [statsData]);
@@ -126,8 +127,6 @@ export const AppDataProvider = ({ children }) => {
   useEffect(() => { safeJSONSave('ppip_kategoriBeritaList', kategoriBeritaList); }, [kategoriBeritaList]);
   useEffect(() => { safeJSONSave('ppip_berita', berita); }, [berita]);
   useEffect(() => { safeJSONSave('ppip_kontak', kontak); }, [kontak]);
-  useEffect(() => { safeJSONSave('ppip_pesanMasuk', pesanMasuk); }, [pesanMasuk]);
-  useEffect(() => { safeJSONSave('ppip_allowedAdmins', allowedAdmins); }, [allowedAdmins]);
 
   // Handlers for Allowed Admins Management
   const addAllowedAdmin = (email, nama, peran = 'Admin') => {
@@ -489,6 +488,7 @@ export const AppDataProvider = ({ children }) => {
       addAllowedAdmin,
       updateAllowedAdmin,
       deleteAllowedAdmin,
+      refreshServerData,
       resetToDefaultData,
       toast,
       showToast

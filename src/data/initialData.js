@@ -1,19 +1,19 @@
 export const initialVisiMisi = {
-  visi: "Menjadi wadah berorganisasi yang inklusif, inovatif, dan berdaya saing global untuk seluruh pelajar Indonesia di Polandia, serta menjadi jembatan diplomasi budaya dan akademik antara Indonesia dan Polandia.",
+  visi: "Mewujudkan PPI Polandia yang Mandiri dalam Ekosistem, Unggul dalam Kualitas Sumber Daya, Kuat dalam Jejaring Inklusif, dan Berdampak Global",
   misi: [
-    "Memberikan pelayanan, perlindungan, serta advokasi yang tanggap bagi seluruh mahasiswa Indonesia di Polandia.",
-    "Mendorong pengembangan kompetensi kepemimpinan, riset, dan profesionalitas anggota melalui program kerja berkelanjutan.",
-    "Menguatkan jaringan kemitraan strategis dengan KBRI Warsaw, PPI Dunia, Perguruan Tinggi di Polandia, dan instansi global.",
-    "Mempromosikan keanekaragaman dan kekayaan budaya Indonesia di kancah internasional."
+    "Revitalisasi Citra dan Kemandirian Organisasi",
+    "Akselerasi Kontribusi dan Keilmuan",
+    "Menciptakan Ekosistem Suportif dan Jejaring Inklusif",
+    "Peningkatan Kualitas Sumber Daya dan Dedikasi"
   ]
 };
 
 export const initialSambutanKetua = {
-  nama: "M. Farhan Al-Ghifari",
-  jabatan: "Ketua Umum PPI Polandia 2024/2025",
-  kabinet: "Kabinet Garuda Nusantara",
-  foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-  ucapan: "Selamat datang di portal resmi PPI Polandia. Kami hadir untuk menyatukan seluruh pelajar Indonesia di bumi Copernicus dan Chopin. Bersama Kabinet Garuda Nusantara, mari kita jadikan masa studi di Polandia tidak hanya sebagai ruang menimba ilmu, tetapi juga sebagai panggung karya, pengabdian, dan diplomasi bangsa."
+  nama: "Nadia Azhaar",
+  jabatan: "Ketua Umum PPI Polandia 2025/2026",
+  kabinet: "Kabinet Revita",
+  foto: "/uploads/sambutan-ketua.png",
+  ucapan: "Selamat datang di portal resmi PPI Polandia. Kami hadir untuk menyatukan seluruh pelajar Indonesia di bumi Copernicus dan Chopin. Bersama Kabinet Revita mari kita jadikan masa studi di Polandia tidak hanya sebagai ruang menimba ilmu, tetapi juga sebagai panggung karya, pengabdian, dan diplomasi bangsa."
 };
 
 export const THEME_PRESETS = {
@@ -105,42 +105,42 @@ export const initialStatsData = [
 export const initialDivisi = [
   {
     id: "div-1",
-    nama: "Pendidikan & Akademik",
-    kode: "EDUC",
+    nama: "Kesejahteraan dan Kekraban Anggota",
+    kode: "KESRA",
     deskripsi: "Mengkoordinasikan advokasi beasiswa, seminar ilmiah, workshop penulisan jurnal, dan bimbingan akademik bagi mahasiswa Indonesia di Polandia.",
-    ikon: "GraduationCap",
+    ikon: "HeartHandshake",
     jumlahAnggota: 6
   },
   {
     id: "div-2",
-    nama: "Hubungan Masyarakat & Internal",
-    kode: "HUMAS",
+    nama: "Hubungan Luar, Advokasi, dan Diplomasi Budaya",
+    kode: "HADIB",
     deskripsi: "Menjalin komunikasi aktif dengan KBRI Warsaw, PPI Kota se-Polandia, PPI Dunia, serta program penyambutan mahasiswa baru (Welcoming Party).",
     ikon: "Users",
     jumlahAnggota: 8
   },
   {
     id: "div-3",
-    nama: "Pengembangan Organisasi & SDM",
-    kode: "POSDM",
+    nama: "Pengembangan Sumber Daya dan Karir",
+    kode: "PSDK",
     deskripsi: "Fokus pada penguatan kapasitas kepemimpinan, kaderisasi internal, gathering anggota, serta peningkatan kesejahteraan pelajar.",
-    ikon: "Target",
+    ikon: "Sparkles",
     jumlahAnggota: 5
   },
   {
     id: "div-4",
-    nama: "Seni, Budaya & Olahraga",
-    kode: "SENORA",
+    nama: "Media Informasi dan Komunikasi Publik",
+    kode: "MEDKOM",
     deskripsi: "Wadalah apresiasi bakat, pengenalan budaya Nusantara di berbagai festival kota Polandia, serta turnamen olahraga tahunan (Indo-Polish Games).",
-    ikon: "Trophy",
+    ikon: "Megaphone",
     jumlahAnggota: 7
   },
   {
     id: "div-5",
-    nama: "Media, Informasi & Publikasi",
-    kode: "MEDINFO",
+    nama: "Kewirausahaan dan Dana Usaha",
+    kode: "KWU",
     deskripsi: "Mengelola seluruh kanal publikasi PPI Polandia, produksi konten edukatif, podcast, majalah digital, serta dokumentasi kegiatan.",
-    ikon: "Sparkles",
+    ikon: "Target",
     jumlahAnggota: 6
   }
 ];
@@ -241,135 +241,303 @@ export const initialProgramKerja = [
 
 export const initialPengurus = [
   {
-    id: "peng-1",
-    nama: "M. Farhan Al-Ghifari",
+    nama: "Nadia Azhaar",
     jabatan: "Ketua Umum",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
+    kabinet: "2025/2026 - Kabinet Revita",
     divisiId: "BPH",
-    foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80",
-    kampus: "University of Warsaw",
-    jurusan: "International Relations",
-    email: "farhan@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 1
+    foto: "/uploads/pengurus-peng-1790076209027.png",
+    kampus: "Medical University of Warsaw",
+    jurusan: "PhD of Medical Science",
+    email: "",
+    linkedin: "",
+    positionIndex: 1,
+    id: "peng-1790076209027"
   },
   {
-    id: "peng-2",
-    nama: "Anisa Rahmawati",
-    jabatan: "Wakil Ketua Umum",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
+    nama: "Elizabeth Claresta Wira P",
+    jabatan: "Wakil Ketua",
+    kabinet: "2025/2026 - Kabinet Revita",
     divisiId: "BPH",
-    foto: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80",
+    foto: "/uploads/pengurus-peng-1790076318166.png",
+    kampus: "Vistula University",
+    jurusan: "Bachelor of International Relations",
+    email: "",
+    linkedin: "",
+    positionIndex: 2,
+    id: "peng-1790076318166"
+  },
+  {
+    nama: "Bennedic Dennis Whitley",
+    jabatan: "Sekretaris 1",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790076407434.png",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of Social Media and Digital Marketing",
+    email: "",
+    linkedin: "",
+    positionIndex: 3,
+    id: "peng-1790076407434"
+  },
+  {
+    nama: "Devi Napitupulu",
+    jabatan: "Sekretaris 2",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790076480498.png",
+    kampus: "University of Warsaw",
+    jurusan: "Bachelor of Finance, International Investment and Accounting",
+    email: "",
+    linkedin: "",
+    positionIndex: 4,
+    id: "peng-1790076480498"
+  },
+  {
+    nama: "Rafi Kusuma Falah R",
+    jabatan: "Bendahara",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790076549316.png",
+    kampus: "Vistula University",
+    jurusan: "Bachelor of Business Security and Analytics",
+    email: "",
+    linkedin: "",
+    positionIndex: 5,
+    id: "peng-1790076549316"
+  },
+  {
+    nama: "Smith Jheremia Hasiholan S",
+    jabatan: "Kadiv KESRA",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790076729746.png",
+    kampus: "Vistula University",
+    jurusan: "Computer Engineering",
+    email: "",
+    linkedin: "",
+    positionIndex: 6,
+    id: "peng-1790076729746"
+  },
+  {
+    nama: "Muhammad Rafi Dezar",
+    jabatan: "Kadiv HADIB",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790076952086.png",
+    kampus: "Vistula University",
+    jurusan: "Master of Energy Management",
+    email: "",
+    linkedin: "",
+    positionIndex: 7,
+    id: "peng-1790076952086"
+  },
+  {
+    nama: "Karima Afandi",
+    jabatan: "Kadiv PSDK",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790077022975.png",
+    kampus: "Nicolaus Copernicus University",
+    jurusan: "PhD in Medical Chemistry and Biopolymer Sciences",
+    email: "",
+    linkedin: "",
+    positionIndex: 8,
+    id: "peng-1790077022975"
+  },
+  {
+    nama: "Syafira Rosa Amalia",
+    jabatan: "Kadiv MEDKOM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790077160273.png",
     kampus: "Warsaw University of Technology",
-    jurusan: "Computer Science",
-    email: "anisa@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 2
+    jurusan: "Master of Computer Science",
+    email: "",
+    linkedin: "",
+    positionIndex: 9,
+    id: "peng-1790077160273"
   },
   {
-    id: "peng-3",
-    nama: "Dimas Rizky Utama",
-    jabatan: "Sekretaris Jenderal",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
+    nama: "Aurora Zevanya Sinurat",
+    jabatan: "Kadiv KWU",
+    kabinet: "2025/2026 - Kabinet Revita",
     divisiId: "BPH",
-    foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80",
-    kampus: "Jagiellonian University Kraków",
-    jurusan: "Biotechnology",
-    email: "dimas@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 3
+    foto: "/uploads/pengurus-peng-1790077382685.png",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of International Relations",
+    email: "",
+    linkedin: "",
+    positionIndex: 10,
+    id: "peng-1790077382685"
   },
   {
-    id: "peng-4",
-    nama: "Siti Nurhaliza",
-    jabatan: "Bendahara Umum",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
+    nama: "Yasinta Putri Cinta A",
+    jabatan: "Staff KESRA",
+    kabinet: "2025/2026 - Kabinet Revita",
     divisiId: "BPH",
-    foto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80",
-    kampus: "SGH Warsaw School of Economics",
-    jurusan: "Finance & Accounting",
-    email: "siti@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 4
-  },
-  {
-    id: "peng-5",
-    nama: "Kevin Pratama",
-    jabatan: "Kadiv Pendidikan & Akademik",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
-    divisiId: "div-1",
-    foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
-    kampus: "Wrocław University of Science",
-    jurusan: "Mechanical Engineering",
-    email: "kevin@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 5
-  },
-  {
-    id: "peng-6",
-    nama: "Nadia Zulaikha",
-    jabatan: "Kadiv Hubungan Masyarakat",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
-    divisiId: "div-2",
-    foto: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80",
-    kampus: "Adam Mickiewicz University Poznań",
-    jurusan: "Journalism & Media",
-    email: "nadia@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 6
-  },
-  {
-    id: "peng-7",
-    nama: "Budi Santoso",
-    jabatan: "Kadiv POSDM",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
-    divisiId: "div-3",
-    foto: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=500&q=80",
-    kampus: "AGH University of Kraków",
-    jurusan: "Energy Management",
-    email: "budi@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 7
-  },
-  {
-    id: "peng-8",
-    nama: "Maya Indah",
-    jabatan: "Kadiv Seni, Budaya & Olahraga",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
-    divisiId: "div-4",
-    foto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
-    kampus: "Fryderyk Chopin University of Music Warsaw",
-    jurusan: "Musicology",
-    email: "maya@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 8
-  },
-  {
-    id: "peng-9",
-    nama: "Rizky Ramadhan",
-    jabatan: "Kadiv Medinfo",
-    kabinet: "2024/2025 - Kabinet Garuda Nusantara",
-    divisiId: "div-5",
-    foto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
-    kampus: "University of Gdańsk",
-    jurusan: "Digital Marketing",
-    email: "rizky@ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 9
-  },
-  /* Previous Cabinet Alumni Sample */
-  {
-    id: "peng-10",
-    nama: "Ahmad Fauzi",
-    jabatan: "Ketua Umum (Demisioner)",
-    kabinet: "2023/2024 - Kabinet Merdeka Pelajar",
-    divisiId: "BPH",
-    foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80",
+    foto: "/uploads/pengurus-peng-1790077459815.png",
     kampus: "University of Warsaw",
-    jurusan: "Economics",
-    email: "fauzi@alumni.ppipolandia.org",
-    linkedin: "https://linkedin.com",
-    positionIndex: 1
+    jurusan: "Master of International Business",
+    email: "",
+    linkedin: "",
+    positionIndex: 11,
+    id: "peng-1790077459815"
+  },
+  {
+    nama: "Xamuelle Yedydo Blez T",
+    jabatan: "Staff KESRA",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790077520099.png",
+    kampus: "Warsaw University of Technology",
+    jurusan: "Bachelor of Aerospace Engineering",
+    email: "",
+    linkedin: "",
+    positionIndex: 12,
+    id: "peng-1790077520099"
+  },
+  {
+    nama: "Zahira Rufaida",
+    jabatan: "Staff HADIB",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790077576710.png",
+    kampus: "Nicolaus Copernicus University",
+    jurusan: "PhD of Biology",
+    email: "",
+    linkedin: "",
+    positionIndex: 13,
+    id: "peng-1790077576710"
+  },
+  {
+    nama: "Merry Erliani",
+    jabatan: "Staff HADIB",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079322734.jpg",
+    kampus: "University of Warsaw",
+    jurusan: "Master of Sustainable Development",
+    email: "",
+    linkedin: "",
+    positionIndex: 14,
+    id: "peng-1790079322734"
+  },
+  {
+    nama: "Kadek Astri Dwijayanti",
+    jabatan: "Staff HADIB",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079364709.jpg",
+    kampus: "University of Warsaw",
+    jurusan: "Master of International Relations",
+    email: "",
+    linkedin: "",
+    positionIndex: 15,
+    id: "peng-1790079364709"
+  },
+  {
+    nama: "Abdul Aziz Baihaqi",
+    jabatan: "Staff PSDM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079459477.jpg",
+    kampus: "Nicolaus Copernicus University",
+    jurusan: "PhD of Business Administration",
+    email: "",
+    linkedin: "",
+    positionIndex: 16,
+    id: "peng-1790079459477"
+  },
+  {
+    nama: "Hessa Azzahwa Tarzhy",
+    jabatan: "Staff PSDM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079535803.jpg",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of Fashion Design",
+    email: "",
+    linkedin: "",
+    positionIndex: 17,
+    id: "peng-1790079535803"
+  },
+  {
+    nama: "Vivienne Anabel Susanto",
+    jabatan: "Staff PSDM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079619512.jpg",
+    kampus: "University of Wroclaw",
+    jurusan: "Bachelor of Business and Administration",
+    email: "",
+    linkedin: "",
+    positionIndex: 18,
+    id: "peng-1790079619512"
+  },
+  {
+    nama: "Didih RIzki Chandranegara",
+    jabatan: "Staff MEDKOM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079744689.jpg",
+    kampus: "AGH University of Krakow",
+    jurusan: "PhD of Information Technology",
+    email: "",
+    linkedin: "",
+    positionIndex: 19,
+    id: "peng-1790079744689"
+  },
+  {
+    nama: "Pramoedya Asher Satya R",
+    jabatan: "Staff MEDKOM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079817907.jpg",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of Social Communication and Public Relation",
+    email: "",
+    linkedin: "",
+    positionIndex: 20,
+    id: "peng-1790079817907"
+  },
+  {
+    nama: "Cheryl Pridiani Cayadewi",
+    jabatan: "Staff MEDKOM",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079934863.jpg",
+    kampus: "Vistula University",
+    jurusan: "Bachelor of Business and Security Analytics",
+    email: "",
+    linkedin: "",
+    positionIndex: 21,
+    id: "peng-1790079934863"
+  },
+  {
+    nama: "Bagas Valerius Saragih",
+    jabatan: "Staff KWU",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790079996976.jpg",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of Marketing Student",
+    email: "",
+    linkedin: "",
+    positionIndex: 22,
+    id: "peng-1790079996976"
+  },
+  {
+    nama: "Adelaide Miracle Romamti",
+    jabatan: "Staff KWU",
+    kabinet: "2025/2026 - Kabinet Revita",
+    divisiId: "BPH",
+    foto: "/uploads/pengurus-peng-1790080053548.jpg",
+    kampus: "Vizja University",
+    jurusan: "Bachelor of Cosmetology and Health Science",
+    email: "",
+    linkedin: "",
+    positionIndex: 23,
+    id: "peng-1790080053548"
   }
 ];
 
@@ -437,45 +605,23 @@ export const initialBerita = [
 ];
 
 export const initialKontak = {
-  email: "info@ppipolandia.org",
-  telepon: "+48 22 123 4567",
-  alamat: "ul. Wiejska 12/4, 00-490 Warszawa, Rzeczpospolita Polska",
-  instagram: "https://instagram.com/ppipolandia",
-  youtube: "https://youtube.com/@ppipolandiaofficial",
+  email: "ppi.polandia@gmail.com",
+  telepon: "+48 795 340 632",
+  alamat: "Estonska 3/5, Warsaw, Poland 03-903",
+  instagram: "https://instagram.com/ppi.polandia",
+  youtube: "https://www.youtube.com/@ppi.polandia",
   linkedin: "https://linkedin.com/company/ppi-polandia",
   tiktok: "https://tiktok.com/@ppipolandia",
   sosmedList: [
-    { id: "sm-1", platform: "Instagram", label: "@ppipolandia", url: "https://instagram.com/ppipolandia" },
-    { id: "sm-2", platform: "YouTube", label: "PPI Polandia TV", url: "https://youtube.com/@ppipolandiaofficial" },
-    { id: "sm-3", platform: "LinkedIn", label: "PPI Polandia", url: "https://linkedin.com/company/ppi-polandia" },
-    { id: "sm-4", platform: "TikTok", label: "@ppipolandia", url: "https://tiktok.com/@ppipolandia" }
+    { id: "sm-1", platform: "Instagram", label: "@ppi.polandia", url: "https://instagram.com/ppi.polandia" },
+    { id: "sm-2", platform: "YouTube", label: "PPI Polandia", url: "https://www.youtube.com/@ppi.polandia" }
   ]
 };
 
-export const initialPesanMasuk = [
-  {
-    id: "msg-1",
-    nama: "Rizka Amelia",
-    email: "rizka.amelia@gmail.com",
-    subjek: "Pertanyaan Beasiswa S2 Warsaw University",
-    pesan: "Halo Kak pengurus PPI Polandia, saya calon mahasiswa yang baru lolos seleksi berkas. Mohon info pengurusan visa pelajar di Jakarta. Terima kasih!",
-    tanggal: "19 September 2025 - 14:20",
-    status: "Belum Dibaca"
-  },
-  {
-    id: "msg-2",
-    nama: "Bambang Sujipto",
-    email: "bambang.sujipto@corp.id",
-    subjek: "Penawaran Kerjasama Sponsorship Cultural Night",
-    pesan: "Selamat siang rekan-rekan PPI Polandia. Kami dari Perusahaan FinTech Indonesia bermaksud ingin mensponsori acara Malam Pesona Nusantara di Warsaw.",
-    tanggal: "15 September 2025 - 09:15",
-    status: "Sudah Dibaca"
-  }
-];
+export const initialPesanMasuk = [];
 
 export const initialKabinetList = [
-  "2024/2025 - Kabinet Garuda Nusantara",
-  "2023/2024 - Kabinet Merdeka Pelajar"
+  "2025/2026 - Kabinet Revita"
 ];
 
 export const initialKategoriBeritaList = [
@@ -490,26 +636,10 @@ export const initialKategoriBeritaList = [
 
 export const initialAllowedAdmins = [
   {
-    id: "admin-1",
-    email: "info@ppipolandia.org",
-    nama: "Admin Utama PPI Polandia",
-    peran: "Super Admin",
-    ditambahkanPada: "2025-01-01"
-  },
-  {
-    id: "admin-2",
-    email: "ketua@ppipolandia.org",
-    nama: "Ketua Umum PPI Polandia",
-    peran: "Admin Pengurus",
-    ditambahkanPada: "2025-01-01"
-  },
-  {
     id: "admin-3",
-    email: "medinfo@ppipolandia.org",
-    nama: "Tim Medinfo & Komunikasi",
-    peran: "Admin Konten",
+    email: "ppi.polandia@gmail.com",
+    nama: "Akun Resmi PPI Polandia",
+    peran: "Super Admin",
     ditambahkanPada: "2025-01-01"
   }
 ];
-
-

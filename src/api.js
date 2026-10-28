@@ -1,12 +1,49 @@
 // REST API Client helper for Web PPI Polandia Backend
 
 const API_BASE = '/api';
+const TOKEN_STORAGE_KEY = 'ppip_admin_token';
+
+const getAuthHeaders = (includeJson = true) => {
+  const headers = {};
+  if (includeJson) {
+    headers['Content-Type'] = 'application/json';
+  }
+  try {
+    const token = sessionStorage.getItem(TOKEN_STORAGE_KEY);
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+  } catch {
+    // Ignore storage errors in restricted environments
+  }
+  return headers;
+};
+
+const saveAdminToken = (token) => {
+  try {
+    if (token) {
+      sessionStorage.setItem(TOKEN_STORAGE_KEY, token);
+    }
+  } catch {
+    // Ignore storage errors
+  }
+};
 
 export const api = {
+  logout() {
+    try {
+      sessionStorage.removeItem(TOKEN_STORAGE_KEY);
+    } catch {
+      // Ignore storage errors
+    }
+  },
+
   // 1. Fetch Full App Data
   async fetchFullData() {
     try {
-      const res = await fetch(`${API_BASE}/data`);
+      const res = await fetch(`${API_BASE}/data`, {
+        headers: getAuthHeaders(false)
+      });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       return await res.json();
     } catch (err) {
@@ -23,7 +60,11 @@ export const api = {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passcode })
       });
-      return await res.json();
+      const data = await res.json();
+      if (data && data.success && data.token) {
+        saveAdminToken(data.token);
+      }
+      return data;
     } catch (err) {
       return { success: false, error: 'Gagal terhubung ke server autentikasi. Pastikan backend server sedang berjalan.' };
     }
@@ -37,7 +78,11 @@ export const api = {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      return await res.json();
+      const data = await res.json();
+      if (data && data.success && data.token) {
+        saveAdminToken(data.token);
+      }
+      return data;
     } catch (err) {
       return {
         success: false,
@@ -51,7 +96,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/theme`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify({ activeThemeKey })
       });
     } catch (err) {
@@ -64,7 +109,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/visi-misi`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -77,7 +122,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/sambutan-ketua`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -90,7 +135,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/stats`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -103,7 +148,7 @@ export const api = {
     try {
       const res = await fetch(`${API_BASE}/divisi`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
       return await res.json();
@@ -117,7 +162,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/divisi/${data.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -127,7 +172,10 @@ export const api = {
 
   async deleteDivisi(id) {
     try {
-      await fetch(`${API_BASE}/divisi/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE}/divisi/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API deleteDivisi error', err);
     }
@@ -138,7 +186,7 @@ export const api = {
     try {
       const res = await fetch(`${API_BASE}/program-kerja`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
       return await res.json();
@@ -152,7 +200,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/program-kerja/${data.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -162,7 +210,10 @@ export const api = {
 
   async deleteProgramKerja(id) {
     try {
-      await fetch(`${API_BASE}/program-kerja/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE}/program-kerja/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API deleteProgramKerja error', err);
     }
@@ -173,7 +224,7 @@ export const api = {
     try {
       const res = await fetch(`${API_BASE}/pengurus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
       return await res.json();
@@ -187,7 +238,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/pengurus/${data.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -197,7 +248,10 @@ export const api = {
 
   async deletePengurus(id) {
     try {
-      await fetch(`${API_BASE}/pengurus/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE}/pengurus/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API deletePengurus error', err);
     }
@@ -207,7 +261,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/pengurus-list`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(pengurusList)
       });
     } catch (err) {
@@ -220,7 +274,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/kabinet-list`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify({ kabinetList, pengurus: pengurusList })
       });
     } catch (err) {
@@ -232,7 +286,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/kategori-berita-list`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify({ kategoriBeritaList, berita: beritaList })
       });
     } catch (err) {
@@ -245,7 +299,7 @@ export const api = {
     try {
       const res = await fetch(`${API_BASE}/berita`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
       return await res.json();
@@ -259,7 +313,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/berita/${data.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -269,7 +323,10 @@ export const api = {
 
   async deleteBerita(id) {
     try {
-      await fetch(`${API_BASE}/berita/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE}/berita/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API deleteBerita error', err);
     }
@@ -280,7 +337,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/kontak`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
       });
     } catch (err) {
@@ -305,7 +362,10 @@ export const api = {
 
   async markPesanRead(id) {
     try {
-      await fetch(`${API_BASE}/pesan-masuk/${id}/read`, { method: 'PUT' });
+      await fetch(`${API_BASE}/pesan-masuk/${id}/read`, {
+        method: 'PUT',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API markPesanRead error', err);
     }
@@ -313,7 +373,10 @@ export const api = {
 
   async deletePesanMasuk(id) {
     try {
-      await fetch(`${API_BASE}/pesan-masuk/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE}/pesan-masuk/${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(false)
+      });
     } catch (err) {
       console.warn('API deletePesanMasuk error', err);
     }
@@ -324,7 +387,7 @@ export const api = {
     try {
       await fetch(`${API_BASE}/allowed-admins`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify(allowedAdminsList)
       });
     } catch (err) {

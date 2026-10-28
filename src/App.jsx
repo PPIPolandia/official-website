@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AppDataProvider } from './context/AppDataContext';
+import { AppDataProvider, useAppData } from './context/AppDataContext';
+import { api } from './api';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -16,6 +17,7 @@ import { KontakPage } from './pages/Kontak';
 import { AdminDashboard } from './pages/AdminDashboard';
 
 export function MainApp() {
+  const { refreshServerData } = useAppData();
   const [activePage, setActivePage] = useState('beranda');
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [adminUser, setAdminUser] = useState(null);
@@ -32,13 +34,14 @@ export function MainApp() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleLoginSuccess = (userData) => {
+  const handleLoginSuccess = async (userData) => {
     setAdminUser(userData || {
       name: 'Admin Utama PPI Polandia',
       email: '',
       picture: '',
       loginType: 'passcode'
     });
+    await refreshServerData();
     setIsAdminModalOpen(false);
     setActivePage('admin');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -98,6 +101,8 @@ export function MainApp() {
           <AdminDashboard 
             adminUser={adminUser}
             onExitAdmin={() => {
+              api.logout();
+              setAdminUser(null);
               setActivePage('beranda');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
