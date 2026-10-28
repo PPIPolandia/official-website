@@ -11,7 +11,7 @@
       "destination": "/api/index.js"
     },
     {
-      "source": "/((?!api/|uploads/|assets/).*)",
+      "source": "/((?!api/|uploads/|sponsors/|assets/).*)",
       "destination": "/index.html"
     }
   ]

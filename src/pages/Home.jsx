@@ -586,6 +586,80 @@ export const Home = ({ setActivePage, setSelectedDivisionFilter, onReadNews }) =
           </div>
         </div>
       </section>
+
+      {/* SPONSOR & MITRA PENDUKUNG PPI DUNIA SECTION */}
+      <section style={{ padding: '3.5rem 0 1rem', background: '#ffffff', borderTop: '1px solid #f1f5f9' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <span className="section-tag" style={{ justifyContent: 'center', marginBottom: '0.5rem' }}>
+              <Sparkles size={15} /> Mitra & Sponsor Resmi Domain PPI Dunia
+            </span>
+            <h3 style={{ fontSize: '1.35rem', color: '#0f172a', margin: 0 }}>
+              Didukung Oleh
+            </h3>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '2rem'
+            }}
+          >
+            {[
+              {
+                name: 'PANDI (Pengelola Nama Domain Internet Indonesia)',
+                src: '/sponsors/pandi.png',
+                url: 'https://pandi.id'
+              },
+              {
+                name: 'IDCloudHost',
+                src: '/sponsors/idcloudhost.png',
+                url: 'https://idcloudhost.com'
+              },
+              {
+                name: 's.id',
+                src: '/sponsors/s-id.png',
+                url: 'https://s.id'
+              }
+            ].map((sponsor) => (
+              <a
+                key={sponsor.name}
+                href={sponsor.url}
+                target="_blank"
+                rel="noreferrer"
+                title={sponsor.name}
+                className="card card-hover"
+                style={{
+                  padding: '1.25rem 2.25rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '16px',
+                  minWidth: '200px',
+                  height: '92px'
+                }}
+              >
+                <img
+                  src={sponsor.src}
+                  alt={sponsor.name}
+                  style={{
+                    maxHeight: '52px',
+                    maxWidth: '160px',
+                    width: 'auto',
+                    height: 'auto',
+                    objectFit: 'contain'
+                  }}
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
