@@ -19,15 +19,17 @@ import {
 const AppDataContext = createContext();
 
 export const AppDataProvider = ({ children }) => {
+  const [isReady, setIsReady] = useState(false);
+
   // Theme State & CSS Variable Application
   const [activeThemeKey, setActiveThemeKey] = useState(() => {
     const saved = localStorage.getItem('ppip_themeKey');
-    return saved && THEME_PRESETS[saved] ? saved : 'biru';
+    return saved && THEME_PRESETS[saved] ? saved : 'merah';
   });
 
   // Apply root CSS variables whenever activeThemeKey changes
   useEffect(() => {
-    const theme = THEME_PRESETS[activeThemeKey] || THEME_PRESETS.biru;
+    const theme = THEME_PRESETS[activeThemeKey] || THEME_PRESETS.merah;
     const root = document.documentElement;
     root.style.setProperty('--primary', theme.primary);
     root.style.setProperty('--primary-hover', theme.primaryHover);
@@ -84,21 +86,25 @@ export const AppDataProvider = ({ children }) => {
 
   // Load live data from Backend REST API
   const refreshServerData = async () => {
-    const db = await api.fetchFullData();
-    if (db) {
-      if (db.activeThemeKey) setActiveThemeKey(db.activeThemeKey);
-      if (db.visiMisi) setVisiMisi(db.visiMisi);
-      if (db.sambutanKetua) setSambutanKetua(db.sambutanKetua);
-      if (db.statsData) setStatsData(db.statsData);
-      if (db.divisi) setDivisi(db.divisi);
-      if (db.programKerja) setProgramKerja(db.programKerja);
-      if (db.pengurus) setPengurus(db.pengurus);
-      if (db.kabinetList) setKabinetList(db.kabinetList);
-      if (db.kategoriBeritaList) setKategoriBeritaList(db.kategoriBeritaList);
-      if (db.berita) setBerita(db.berita);
-      if (db.kontak) setKontak(db.kontak);
-      if (Array.isArray(db.pesanMasuk)) setPesanMasuk(db.pesanMasuk);
-      if (Array.isArray(db.allowedAdmins)) setAllowedAdmins(db.allowedAdmins);
+    try {
+      const db = await api.fetchFullData();
+      if (db) {
+        if (db.activeThemeKey) setActiveThemeKey(db.activeThemeKey);
+        if (db.visiMisi) setVisiMisi(db.visiMisi);
+        if (db.sambutanKetua) setSambutanKetua(db.sambutanKetua);
+        if (db.statsData) setStatsData(db.statsData);
+        if (db.divisi) setDivisi(db.divisi);
+        if (db.programKerja) setProgramKerja(db.programKerja);
+        if (db.pengurus) setPengurus(db.pengurus);
+        if (db.kabinetList) setKabinetList(db.kabinetList);
+        if (db.kategoriBeritaList) setKategoriBeritaList(db.kategoriBeritaList);
+        if (db.berita) setBerita(db.berita);
+        if (db.kontak) setKontak(db.kontak);
+        if (Array.isArray(db.pesanMasuk)) setPesanMasuk(db.pesanMasuk);
+        if (Array.isArray(db.allowedAdmins)) setAllowedAdmins(db.allowedAdmins);
+      }
+    } finally {
+      setIsReady(true);
     }
   };
 
@@ -494,7 +500,9 @@ export const AppDataProvider = ({ children }) => {
       toast,
       showToast
     }}>
-      {children}
+      <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.2s ease-in-out' }}>
+        {children}
+      </div>
     </AppDataContext.Provider>
   );
 };

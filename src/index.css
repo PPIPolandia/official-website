@@ -4,12 +4,12 @@
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Color Palette - Matching SaaS Landing & Coursie Admin Reference */
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
-  --primary-border: #bfdbfe;
-  --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  /* Color Palette - PPI Polandia Default Crimson Red Theme */
+  --primary: #dc2626;
+  --primary-hover: #b91c1c;
+  --primary-light: #fef2f2;
+  --primary-border: #fecaca;
+  --primary-gradient: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
   --accent-purple: #6366f1;
   
   --bg-main: #f8fafc;
@@ -22,7 +22,7 @@
   --text-white: #ffffff;
 
   --border-color: #e2e8f0;
-  --border-focus: #3b82f6;
+  --border-focus: #ef4444;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
